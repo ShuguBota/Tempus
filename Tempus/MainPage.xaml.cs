@@ -52,7 +52,7 @@ public partial class MainPage : ContentPage
             Debug.WriteLine("The current application name is: " + proc.ProcessName);
             Debug.WriteLine("The current application file name is: " + proc.MainModule.FileName);
             
-            Thread.Sleep(1000);
+            Thread.Sleep(5000);
         }
     }
     
