@@ -1,14 +1,16 @@
 ﻿using System.Diagnostics;
+using System.Management.Automation;
 
 namespace Tempus;
 
-public class ApplicationFocusChangedEventArgs(string processName, string fileName) : EventArgs
+public class ApplicationFocusChangedEventArgs(Process process) : EventArgs
 {
-    public string ProcessName { get; } = processName;
-    public string FileName { get; } = fileName;
-    
     public void HandleFocusChange()
     {
-        Debug.WriteLine($"Application focus changed to {ProcessName}, File Name: {FileName}");
+        // process.ProcessName e.g. "notepad"
+        // process.MainModule e.g. "C:\Windows\System32\notepad.exe"
+        
+        Debug.WriteLine($"Application focus changed to {process.ProcessName}, File Name: {process.MainModule.FileName}");
+        Debug.WriteLine($"{process.MainWindowTitle}, {process.Handle}");
     }
 }

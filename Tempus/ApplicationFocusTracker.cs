@@ -68,7 +68,7 @@ public class ApplicationFocusTracker : IApplicationFocusTracker
                 return;
             }
 
-            OnApplicationFocusChanged(new ApplicationFocusChangedEventArgs(process.ProcessName, process.MainModule.FileName));
+            OnApplicationFocusChanged(new ApplicationFocusChangedEventArgs(process));
         }
         catch(Exception e)
         {
